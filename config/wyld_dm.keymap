@@ -37,6 +37,17 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
         };
+
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-unless-interrupted";
+        };
     };
 
     keymap {
@@ -59,12 +70,12 @@
         colemak_layer {
             display-name = "COLEMAK";
             bindings = <
-&kp ESC    &kp N1              &kp N2          &kp N3      &kp N4            &kp N5                &kp N6     &kp N7             &kp N8      &kp N9           &kp N0               &kp MINUS
-&kp TAB    &kp Q               &kp W           &kp F       &kp P             &kp G                 &kp J      &kp L              &kp U       &kp Y            &kp SEMI             &kp LBKT
-&kp CAPS   &mt LEFT_CONTROL A  &mt LEFT_ALT R  &mt LGUI S  &mt LEFT_SHIFT T  &kp D                 &kp H      &mt RIGHT_SHIFT N  &mt RGUI E  &mt RIGHT_ALT I  &mt RIGHT_CONTROL O  &kp SQT
-&kp LSHFT  &kp Z               &kp X           &kp C       &kp D             &kp B                 &kp K      &kp H              &kp COMMA   &kp DOT          &kp FSLH             &kp RSHFT
-&mo RAISE  &kp SPACE           &kp DEL         &mkp LCLK   &mkp RCLK         &kp TAB     &kp BSPC  &kp ENTER  &mo LOWER          &kp HOME
-                                                                             &kp K_MUTE
+&kp ESC    &kp N1               &kp N2           &kp N3       &kp N4             &kp N5                &kp N6     &kp N7              &kp N8       &kp N9            &kp N0                &kp MINUS
+&kp TAB    &kp Q                &kp W            &kp F        &kp P              &kp G                 &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
+&kp CAPS   &hrm LEFT_CONTROL A  &hrm LEFT_ALT R  &hrm LGUI S  &hrm LEFT_SHIFT T  &kp D                 &kp H      &hrm RIGHT_SHIFT N  &hrm RGUI E  &hrm RIGHT_ALT I  &hrm RIGHT_CONTROL O  &kp SQT
+&kp LSHFT  &kp Z                &kp X            &kp C        &kp D              &kp B                 &kp K      &kp H               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
+&mo RAISE  &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo LOWER           &kp HOME
+                                                                                 &kp K_MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
