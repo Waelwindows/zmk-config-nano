@@ -44,9 +44,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             require-prior-idle-ms = <125>;
-            flavor = "tap-preferred";
+            flavor = "tap-unless-interrupted";
         };
     };
 
@@ -59,7 +59,7 @@
 &kp ESC    &kp N1               &kp N2           &kp N3       &kp N4             &kp N5                &kp N6     &kp N7              &kp N8       &kp N9            &kp N0                &kp MINUS
 &kp TAB    &kp Q                &kp W            &kp F        &kp P              &kp G                 &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
 &kp CAPS   &hrm LEFT_CONTROL A  &hrm LEFT_ALT R  &hrm LGUI S  &hrm LEFT_SHIFT T  &kp D                 &kp H      &hrm RIGHT_SHIFT N  &hrm RGUI E  &hrm RIGHT_ALT I  &hrm RIGHT_CONTROL O  &kp SQT
-&kp LSHFT  &kp Z                &kp X            &kp C        &kp D              &kp B                 &kp K      &kp H               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
+&kp LSHFT  &kp Z                &kp X            &kp C        &kp V              &kp B                 &kp K      &kp M               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
 &mo 3      &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo 2               &kp HOME
                                                                                  &kp K_MUTE
             >;
