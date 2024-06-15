@@ -53,20 +53,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "QWERTY";
-            bindings = <
-&kp ESC    &kp N1     &kp N2   &kp N3     &kp N4     &kp N5                &kp N6     &kp N7     &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q      &kp W    &kp E      &kp R      &kp T                 &kp Y      &kp U      &kp I      &kp O    &kp P     &kp LBKT
-&kp CAPS   &kp A      &kp S    &kp D      &kp F      &kp G                 &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z      &kp X    &kp C      &kp V      &kp B                 &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-&mo RAISE  &kp SPACE  &kp DEL  &mkp LCLK  &mkp RCLK  &kp TAB     &kp BSPC  &kp ENTER  &mo LOWER  &kp HOME
-                                                     &kp K_MUTE
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
-        };
-
         colemak_layer {
             display-name = "COLEMAK";
             bindings = <
@@ -74,8 +60,22 @@
 &kp TAB    &kp Q                &kp W            &kp F        &kp P              &kp G                 &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
 &kp CAPS   &hrm LEFT_CONTROL A  &hrm LEFT_ALT R  &hrm LGUI S  &hrm LEFT_SHIFT T  &kp D                 &kp H      &hrm RIGHT_SHIFT N  &hrm RGUI E  &hrm RIGHT_ALT I  &hrm RIGHT_CONTROL O  &kp SQT
 &kp LSHFT  &kp Z                &kp X            &kp C        &kp D              &kp B                 &kp K      &kp H               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
-&mo RAISE  &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo LOWER           &kp HOME
+&mo 3      &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo 2               &kp HOME
                                                                                  &kp K_MUTE
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        qwerty_layer {
+            display-name = "QWERTY";
+            bindings = <
+&kp ESC    &kp N1     &kp N2   &kp N3     &kp N4     &kp N5                &kp N6     &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q      &kp W    &kp E      &kp R      &kp T                 &kp Y      &kp U   &kp I      &kp O    &kp P     &kp LBKT
+&kp CAPS   &kp A      &kp S    &kp D      &kp F      &kp G                 &kp H      &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z      &kp X    &kp C      &kp V      &kp B                 &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+&mo 3      &kp SPACE  &kp DEL  &mkp LCLK  &mkp RCLK  &kp TAB     &kp BSPC  &kp ENTER  &mo 2   &kp HOME
+                                                     &kp K_MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -87,7 +87,7 @@
 &trans       &kp F1            &kp F2             &kp F3           &kp F4           &kp F5                   &kp F6     &kp F7     &kp F8           &kp F9    &kp F10   &kp F11
 &kp GRAVE    &kp EXCL          &kp AT             &kp HASH         &kp DOLLAR       &kp PRCNT                &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp F12
 &bootloader  &rgb_ug RGB_ON    &rgb_ug RGB_OFF    &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &trans                   &trans     &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC  &bootloader
-&to COLEMAK  &ext_power EP_ON  &ext_power EP_OFF  &rgb_ug RGB_ON   &rgb_ug RGB_OFF  &to QWERTY               &trans     &trans     &trans           &trans    &trans    &trans
+&to 0        &ext_power EP_ON  &ext_power EP_OFF  &rgb_ug RGB_ON   &rgb_ug RGB_OFF  &to 1                    &trans     &trans     &trans           &trans    &trans    &trans
 &trans       &trans            &trans             &trans           &trans           &trans           &trans  &trans     &trans     &trans
                                                                                     &rgb_ug RGB_TOG
             >;
