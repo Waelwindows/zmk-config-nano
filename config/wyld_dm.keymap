@@ -48,6 +48,34 @@
             require-prior-idle-ms = <125>;
             flavor = "tap-unless-interrupted";
         };
+
+        hml: hml {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HML";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 22 21 20 18 19 30 31 32 33 23 35 34 43 42 44 45 46 47 54 55 56>;
+            hold-trigger-on-release;
+        };
+
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41>;
+        };
     };
 
     keymap {
@@ -58,7 +86,7 @@
             bindings = <
 &kp ESC    &kp N1               &kp N2           &kp N3       &kp N4             &kp N5                &kp N6     &kp N7              &kp N8       &kp N9            &kp N0                &kp MINUS
 &kp TAB    &kp Q                &kp W            &kp F        &kp P              &kp G                 &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
-&kp CAPS   &hrm LEFT_CONTROL A  &hrm LEFT_ALT R  &hrm LGUI S  &hrm LEFT_SHIFT T  &kp D                 &kp H      &hrm RIGHT_SHIFT N  &hrm RGUI E  &hrm RIGHT_ALT I  &hrm RIGHT_CONTROL O  &kp SQT
+&kp CAPS   &hml LEFT_CONTROL A  &hml LEFT_ALT R  &hml LGUI S  &hml LEFT_SHIFT T  &kp D                 &kp H      &hmr RIGHT_SHIFT N  &hmr RGUI E  &hmr RIGHT_ALT I  &hmr RIGHT_CONTROL O  &kp SQT
 &kp LSHFT  &kp Z                &kp X            &kp C        &kp V              &kp B                 &kp K      &kp M               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
 &mo 3      &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo 2               &kp HOME
                                                                                  &kp K_MUTE
