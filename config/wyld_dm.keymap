@@ -38,15 +38,14 @@
             bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
         };
 
-        hrm: hrm {
+        caps: caps {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRM";
+            label = "CAPS";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-unless-interrupted";
+            flavor = "tap-preferred";
         };
 
         hml: hml {
@@ -84,12 +83,12 @@
         colemak_layer {
             display-name = "COLEMAK";
             bindings = <
-&kp ESC    &kp N1               &kp N2           &kp N3       &kp N4             &kp N5                &kp N6     &kp N7              &kp N8       &kp N9            &kp N0                &kp MINUS
-&kp TAB    &kp Q                &kp W            &kp F        &kp P              &kp G                 &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
-&kp CAPS   &hml LEFT_CONTROL A  &hml LEFT_ALT R  &hml LGUI S  &hml LEFT_SHIFT T  &kp D                 &kp H      &hmr RIGHT_SHIFT N  &hmr RGUI E  &hmr RIGHT_ALT I  &hmr RIGHT_CONTROL O  &kp SQT
-&kp LSHFT  &kp Z                &kp X            &kp C        &kp V              &kp B                 &kp K      &kp M               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
-&mo 3      &kp SPACE            &kp DEL          &mkp LCLK    &mkp RCLK          &kp TAB     &kp BSPC  &kp ENTER  &mo 2               &kp HOME
-                                                                                 &kp K_MUTE
+&kp ESC            &kp N1               &kp N2           &kp N3       &kp N4             &kp N5                   &kp N6     &kp N7              &kp N8       &kp N9            &kp N0                &kp MINUS
+&kp TAB            &kp Q                &kp W            &kp F        &kp P              &kp G                    &kp J      &kp L               &kp U        &kp Y             &kp SEMI              &kp LBKT
+&caps CAPS ESCAPE  &hml LEFT_CONTROL A  &hml LEFT_ALT R  &hml LGUI S  &hml LEFT_SHIFT T  &kp D                    &kp H      &hmr RIGHT_SHIFT N  &hmr RGUI E  &hmr RIGHT_ALT I  &hmr RIGHT_CONTROL O  &kp SQT
+&kp LSHFT          &kp Z                &kp X            &kp C        &kp V              &kp B                    &kp K      &kp M               &kp COMMA    &kp DOT           &kp FSLH              &kp RSHFT
+&mo 3              &kp SPACE            &kp TAB          &mkp LCLK    &mkp RCLK          &kp BACKSPACE  &kp BSPC  &kp ENTER  &mo 2               &kp HOME
+                                                                                         &kp K_MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
