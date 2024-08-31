@@ -1,0 +1,15 @@
+#+TITLE: My Keyboard's Configuration
+
+This is where the configuration for my wylderbuilds-made dactyl live. It’s a 4×6 Dactyl Manuform build with
+- *Bluetooth Low Energy* (BLE) support /courtesy/ to ZMK
+- *Trackball support* using the “PMW3610” optical sensor
+- *Colemak* layout with *Home row mods*.
+- *RGB underglow*
+
+Thanks to @bullwinkle300 for the initial build/configuration. You can find the rest of their build configurations [[https://github.com/bullwinkle3000/zmk-config-nano][here]].
+
+My version contains a few special things. For one, it’s built using Nix using [[https://github.com/lilyinstarlight/zmk-nix/tree/main][zmk-nix]] setup with the GitHub Actions. Thus, it should be reproducible!
+
+* License
+Feel free to use my configuration for anything! I’ve licensed it under the [[./LICENSE][MIT License]]
+
