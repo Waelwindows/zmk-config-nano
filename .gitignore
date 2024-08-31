@@ -1,0 +1,9 @@
+/.west
+/modules
+/zephyr
+/zmk
+/build
+
+# Nix
+.direnv/
+result*
