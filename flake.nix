@@ -21,7 +21,16 @@
       firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
         name = "firmware";
 
-        src = nixpkgs.lib.sourceFilesBySuffices self [".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"];
+        src = nixpkgs.lib.sources.cleanSourceWith {
+          src = self;
+          filter = path: type:
+            type == "directory" ||
+            (builtins.any (ext: nixpkgs.lib.hasSuffix ext path) [
+              ".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"
+              ".c" ".h" ".yaml"
+            ]) ||
+            builtins.elem (builtins.baseNameOf path) ["Kconfig" "CMakeLists.txt"];
+        };
 
         board = "nice_nano_v2";
         shield = "wyld_dm_%PART% nice_view";

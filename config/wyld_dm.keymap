@@ -12,7 +12,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ripple.h>
 
 // triggering build
 
@@ -26,16 +26,21 @@
 
 / {
     behaviors {
-        rgb_encoder_bright: rgb_encoder_bright {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        ripple: ripple {
+            compatible = "zmk,behavior-ripple";
+            #binding-cells = <1>;
         };
 
-        rgb_encoder_hue: rgb_encoder_hue {
+        ripple_encoder_bright: ripple_encoder_bright {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
+            bindings = <&ripple RIPPLE_BRI>, <&ripple RIPPLE_BRD>;
+        };
+
+        ripple_encoder_hue: ripple_encoder_hue {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&ripple RIPPLE_HUI>, <&ripple RIPPLE_HUD>;
         };
 
         caps: caps {
@@ -120,13 +125,13 @@
             bindings = <
 &trans            &kp F1              &kp F2              &kp F3            &kp F4            &kp F5                 &kp F6      &kp F7            &kp F8      &kp F9          &kp F10             &kp F11
 &kp GRAVE         &kp EXCL            &kp AT              &kp HASH          &kp DOLLAR        &kp PRCNT              &kp CARET   &kp AMPS          &kp ASTRK   &kp LPAR        &kp RPAR            &kp F12
-&rgb_ug RGB_EFF   &kp LEFT_CONTROL    &kp LEFT_ALT        &kp LGUI          &kp LEFT_SHIFT    &rgb_ug RGB_EFR        &trans      &kp RIGHT_SHIFT   &kp RGUI    &kp RIGHT_ALT   &kp RIGHT_CONTROL   &bootloader
-&to 0             &ext_power EP_ON    &ext_power EP_OFF   &rgb_ug RGB_ON    &rgb_ug RGB_OFF   &to 1                  &trans      &kp MINUS         &kp EQUAL   &kp LBRC        &kp RBRC            &trans
+&ripple RIPPLE_HUI &kp LEFT_CONTROL    &kp LEFT_ALT        &kp LGUI          &kp LEFT_SHIFT    &ripple RIPPLE_HUD     &trans      &kp RIGHT_SHIFT   &kp RGUI    &kp RIGHT_ALT   &kp RIGHT_CONTROL   &bootloader
+&to 0             &ext_power EP_ON    &ext_power EP_OFF   &ripple RIPPLE_TOG &trans            &to 1                  &trans      &kp MINUS         &kp EQUAL   &kp LBRC        &kp RBRC            &trans
 &trans            &trans              &trans              &trans            &trans            &trans                 &trans      &trans            &trans      &trans
-																																															&rgb_ug RGB_TOG
+																																															&ripple RIPPLE_TOG
             >;
 
-            sensor-bindings = <&rgb_encoder_bright &rgb_encoder_hue>;
+            sensor-bindings = <&ripple_encoder_bright &ripple_encoder_hue>;
         };
 
         raise_layer {
@@ -158,5 +163,3 @@
         };
     };
 };
-
-&led_strip { chain-length = <24>; };

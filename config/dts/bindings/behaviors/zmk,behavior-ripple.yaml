@@ -1,0 +1,5 @@
+description: LED ripple effect control behavior
+
+compatible: "zmk,behavior-ripple"
+
+include: one_param.yaml

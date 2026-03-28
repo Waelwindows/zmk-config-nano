@@ -1,0 +1,33 @@
+config LED_RIPPLE
+    bool "LED ripple effect on key press"
+    default y
+    select SPI
+    select LED_STRIP
+
+config LED_RIPPLE_HUE
+    int "Default hue (0-359)"
+    default 200
+
+config LED_RIPPLE_BRT
+    int "Default brightness (0-100)"
+    default 80
+
+config LED_RIPPLE_BASE_BRT
+    int "Base (idle) brightness percentage (0-100)"
+    default 0
+
+config LED_RIPPLE_SPEED
+    int "Ripple speed in ms per coordinate unit"
+    default 5
+
+config LED_RIPPLE_DECAY_MS
+    int "Ripple fade duration in ms"
+    default 500
+
+config LED_RIPPLE_HUE_STEP
+    int "Hue shift per keypress (degrees)"
+    default 30
+
+config LED_RIPPLE_FPS
+    int "Animation frames per second"
+    default 30
