@@ -35,7 +35,7 @@
         board = "nice_nano_v2";
         shield = "wyld_dm_%PART% nice_view";
 
-        zephyrDepsHash = "sha256-WTBPbIDy1ztXEsPKlP564+m5eLOIqmv685InT7EVt7M=";
+        zephyrDepsHash = "";
 
         meta = {
           description = "ZMK firmware";
